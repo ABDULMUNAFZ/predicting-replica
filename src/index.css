@@ -1,0 +1,127 @@
+/*
+ * Layer order matters and mirrors the reference site's compiled CSS:
+ *   1. base (preflight + border/body defaults)
+ *   2. utilities
+ *   3. unlayered globals (tokens + element overrides)  <- sits AFTER utilities
+ *   4. variants (hover:, dark:, sm:, md:)
+ * Because the element overrides come after utilities, e.g. `button{border:none}`
+ * resets border-style on every button, so unselected filter buttons render
+ * borderless even though they carry the `border` class. See docs/BUG_LOG.md, BUG-04.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: system-ui, Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    line-height: 1.4;
+  }
+}
+
+/* ---- Design tokens (light = :root, dark = .dark) ---- */
+:root {
+  --background: #f0f0f0;
+  --foreground: #1a1a1a;
+  --card: #fcfcfc;
+  --card-foreground: hsl(0, 0%, 0%);
+  --popover: hsl(45, 25%, 97%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #c4c4c4;
+  --secondary-foreground: #1a1a1a;
+  --muted: #e3e3e3;
+  --muted-foreground: #212121;
+  --accent: hsl(0, 0%, 100%);
+  --accent-foreground: hsl(0, 0%, 10.2%);
+  --destructive: hsl(0, 0%, 0%);
+  --destructive-foreground: #ffffff;
+  --border: #e8e8e8;
+  --input: #b5b5b5;
+  --ring: hsl(0, 0%, 41.96%);
+  --font-sans: Poppins;
+  --font-mono: Menlo, monospace;
+  --radius: 0.8rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 7%);
+  --foreground: hsl(0, 0%, 93%);
+  --card: hsl(0, 0%, 10%);
+  --card-foreground: hsl(0, 0%, 90%);
+  --popover: hsl(0, 0%, 7%);
+  --popover-foreground: hsl(0, 0%, 93%);
+  --primary: hsl(0, 0%, 100%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 20%);
+  --secondary-foreground: hsl(0, 0%, 93%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 55%);
+  --accent: hsl(0, 0%, 18%);
+  --accent-foreground: hsl(0, 0%, 93%);
+  --destructive: hsl(0, 70%, 50%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 18%);
+  --input: hsl(0, 0%, 15%);
+  --ring: hsl(0, 0%, 40%);
+}
+
+/* ---- Element-level overrides (flat, minimal look) ---- */
+* {
+  box-shadow: none !important;
+  background-image: none !important;
+  text-shadow: none !important;
+}
+button:hover,
+a:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+table {
+  border-collapse: collapse;
+  font-family: system-ui, Arial, Helvetica, sans-serif;
+  table-layout: fixed;
+}
+th,
+td {
+  border: none;
+  padding: 8px;
+}
+thead tr {
+  border-bottom: 1px solid var(--foreground);
+}
+tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+button {
+  font-family: system-ui, Arial, Helvetica, sans-serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--foreground);
+}
+button,
+a {
+  transition: opacity 0.1s ease-out;
+}
+button:active,
+a:active {
+  opacity: 0.7;
+}
+.animate-pulse {
+  will-change: opacity;
+}
+[data-testid='leaderboard-table'] {
+  contain: layout style;
+}
+
+@tailwind variants;

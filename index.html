@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Prediction Market Leaderboard — Top Polymarket &amp; Kalshi Traders | predicting.top</title>
+    <!--
+      Interview assignment replica of https://predicting.top, built for an Elcara LLC-FZ
+      hiring assignment. Not affiliated with predicting.top. Kept out of search indexes.
+    -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Interview assignment replica of the predicting.top prediction market leaderboard. Not affiliated with predicting.top." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      (function () {
+        var t;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        document.documentElement.classList.add(!t || t === 'dark' ? 'dark' : 'light');
+      })();
+    </script>
+    <script>
+      (function () {
+        if (location.pathname !== '/') return;
+        var l = document.createElement('link');
+        l.rel = 'preload';
+        l.href = '/api/leaderboard?period=1d';
+        l.as = 'fetch';
+        l.crossOrigin = 'anonymous';
+        document.head.appendChild(l);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
