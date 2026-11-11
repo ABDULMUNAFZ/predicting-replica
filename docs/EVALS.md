@@ -19,7 +19,7 @@ Screenshot pairs and diff masks can be browsed at **/compare**.
 - Gate: **≥ 97%** per case.
 - **Negative control:** the same home page with a 2px padding change injected into the
   replica only. It must score **below** 97%. If it ever passes, the metric is blind and the
-  whole run is untrusted. (Current: 92.21%, correctly failing.)
+  whole run is untrusted. (Current: 92.22% on prod, correctly failing.)
 - The replica's disclosure badge is hidden during capture and the report says so.
 
 ## 2. Functional parity (`evals/parity.ts`): 30 scenarios
@@ -45,13 +45,17 @@ what the page shows, and the two records must be **identical** (JSON equality):
   dropped and bad periods are clamped, unknown traders return 404, avatars are served
   same-origin, and leaderboard responses carry `s-maxage` caching.
 
-## 4. Unit tests (`tests/unit`, vitest): 50 tests
+## 4. Unit tests (`tests/unit`, vitest): 53 tests
 Formatting rules (including the reference's `$-42.50` quirk), filter/sort semantics
 (the "both" platform, 0.5 sports boundary, esports-with-X exception, $5+ only on 1D,
 first-click-ascending sort, NaN-safe ROI sort), link safety (`javascript:`/foreign hosts
 rejected, referral codes stripped), calendar maths (midnight attribution, gaps over 36h skipped),
 form validation messages, and the proxy (allow-list, param stripping, snapshot fallback on
 throw and 5xx, 404 passthrough, 502).
+
+## 5. Real-runtime smoke tests (deploy)
+- After each deploy, every API route class is hit on the preview URL before promoting to production.
+- Fallback is proven in the real runtime by a preview deploy with `UPSTREAM_BASE=https://upstream-down.invalid` (snapshot served).
 
 ## Intentional differences (excluded from "exact")
 Disclosure badge, `noindex`, no analytics, no affiliate codes, the Get listed form doesn't send,

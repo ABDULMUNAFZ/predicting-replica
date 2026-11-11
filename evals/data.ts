@@ -64,14 +64,23 @@ async function proxyFidelity() {
       pass: mism.length === 0,
     });
   }
+  // Locally the s-maxage header is visible. On Vercel the CDN consumes s-maxage and strips it,
+  // so there the proof is a CDN HIT on a repeat request.
+  await fetch(`${REPLICA}/api/leaderboard?period=1d`);
   const r = await fetch(`${REPLICA}/api/leaderboard?period=1d`);
+  const cc = r.headers.get('cache-control') ?? 'none';
+  const cdn = r.headers.get('x-vercel-cache');
   add({
     id: 'proxy-cache-headers',
-    description: 'Leaderboard responses are edge-cacheable (keeps upstream calls under its 120/min limit)',
-    expected: 'cache-control contains s-maxage',
-    actual: r.headers.get('cache-control') ?? 'none',
-    pass: /s-maxage=\d+/.test(r.headers.get('cache-control') ?? ''),
+    description: 'Leaderboard responses are edge-cached (keeps upstream calls under its 120/min limit)',
+    expected: 's-maxage in cache-control, or x-vercel-cache HIT on repeat',
+    actual: cdn ? `x-vercel-cache: ${cdn}` : cc,
+    pass: /s-maxage=\d+/.test(cc) || cdn === 'HIT' || cdn === 'STALE',
   });
+  const post = await fetch(`${REPLICA}/api/leaderboard`, { method: 'POST' });
+  if (cdn) {
+    add({ id: 'proxy-405-post', description: 'Non-GET requests are rejected (read-only proxy)', expected: '405', actual: String(post.status), pass: post.status === 405 });
+  }
 }
 
 async function independentTruth() {

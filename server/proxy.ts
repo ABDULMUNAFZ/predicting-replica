@@ -11,6 +11,8 @@
  * (api/[...path].ts), so local dev and production run the same code path.
  */
 
+import { readFile } from 'node:fs/promises';
+
 export const UPSTREAM = (process.env.UPSTREAM_BASE || 'https://predicting.top').replace(/\/$/, '');
 const TIMEOUT_MS = Number(process.env.UPSTREAM_TIMEOUT_MS || 8000);
 
@@ -28,24 +30,30 @@ const IMAGE = 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604
 
 const PERIODS = ['1d', '7d', '30d', '90d', 'ytd', 'all'] as const;
 
-// Static import map (not a template string) so the serverless bundler traces every file.
-const SNAPSHOTS: Record<string, () => Promise<{ default: unknown }>> = {
-  '1d': () => import('../fixtures/leaderboard-1d.json'),
-  '30d': () => import('../fixtures/leaderboard-30d.json'),
-  ytd: () => import('../fixtures/leaderboard-ytd.json'),
-  all: () => import('../fixtures/leaderboard-all.json'),
+// Snapshots are read with fs + literal `new URL(..., import.meta.url)` paths:
+// - native Node ESM (how Vercel runs api/) rejects bare JSON imports without `with {type:'json'}`
+// - literal URLs let the serverless file tracer include each file (vercel.json includeFiles too).
+// See docs/BUG_LOG.md, BUG-01 and BUG-14.
+const SNAPSHOTS: Record<string, URL> = {
+  '1d': new URL('../fixtures/leaderboard-1d.json', import.meta.url),
+  '30d': new URL('../fixtures/leaderboard-30d.json', import.meta.url),
+  ytd: new URL('../fixtures/leaderboard-ytd.json', import.meta.url),
+  all: new URL('../fixtures/leaderboard-all.json', import.meta.url),
 };
+const DAILY_SNAPSHOT = new URL('../fixtures/daily-profit.json', import.meta.url);
+
+async function readJson(u: URL): Promise<object> {
+  return JSON.parse(await readFile(u, 'utf8'));
+}
 
 async function leaderboardFallback(url: URL) {
   const p = url.searchParams.get('period') || '1d';
   // Snapshots exist for the four periods the UI exposes.
-  const mod = await (SNAPSHOTS[p] ?? SNAPSHOTS['1d'])();
-  return { ...(mod.default as object), _snapshot: true };
+  return { ...(await readJson(SNAPSHOTS[p] ?? SNAPSHOTS['1d'])), _snapshot: true };
 }
 
 async function dailyProfitFallback() {
-  const mod = await import('../fixtures/daily-profit.json');
-  return { ...(mod.default ?? mod), _snapshot: true };
+  return { ...(await readJson(DAILY_SNAPSHOT)), _snapshot: true };
 }
 
 // Order matters: first match wins.

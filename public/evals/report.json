@@ -63,8 +63,8 @@
       "replica": "/evals/shots/home-mobile-dark-replica.png",
       "diff": "/evals/shots/home-mobile-dark-diff.png",
       "heights": {
-        "original": 1438,
-        "replica": 1438
+        "original": 1426,
+        "replica": 1426
       },
       "control": false
     },
@@ -80,8 +80,8 @@
       "replica": "/evals/shots/home-mobile-light-replica.png",
       "diff": "/evals/shots/home-mobile-light-diff.png",
       "heights": {
-        "original": 1438,
-        "replica": 1438
+        "original": 1426,
+        "replica": 1426
       },
       "control": false
     },
@@ -107,7 +107,7 @@
       "page": "/account/BuckeyesAreNuts",
       "viewport": "1280x900",
       "theme": "dark",
-      "matchPercent": 100,
+      "matchPercent": 99.98,
       "threshold": 97,
       "pass": true,
       "original": "/evals/shots/profile-kalshi-desktop-dark-original.png",
@@ -141,7 +141,7 @@
       "page": "/ (negative control: replica row cells padding-top 12px to 10px)",
       "viewport": "1280x900",
       "theme": "dark",
-      "matchPercent": 92.214,
+      "matchPercent": 92.222,
       "threshold": 97,
       "pass": true,
       "original": "/evals/shots/control-sabotaged-home-original.png",
@@ -172,49 +172,49 @@
     }
   ],
   "visualNote": "Replica disclosure badge hidden during capture. Identical API data and clock on both sites.",
-  "generatedAt": "2026-11-11T16:39:25.828Z",
+  "generatedAt": "2026-11-11T17:01:20.936Z",
   "originalUrl": "https://predicting.top",
-  "replicaUrl": "http://localhost:5179",
+  "replicaUrl": "https://predicting-replica.vercel.app",
   "parity": [
     {
       "id": "parity-default",
       "description": "Parity: Default view (1D, $5+, No sports, No esports)",
-      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-no-sports-off",
       "description": "Parity: Toggle No sports off",
-      "expected": "{\"count\":\"458 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"458 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-no-esports-off",
       "description": "Parity: Toggle No esports off",
-      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-big-movers-off",
       "description": "Parity: Toggle $5+ off",
-      "expected": "{\"count\":\"505 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"505 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-platform-polymarket",
       "description": "Parity: Platform filter: Polymarket",
-      "expected": "{\"count\":\"290 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"290 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-platform-kalshi",
       "description": "Parity: Platform filter: Kalshi",
-      "expected": "{\"count\":\"109 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"109 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
@@ -228,7 +228,7 @@
     {
       "id": "parity-linked",
       "description": "Parity: X-linked traders only",
-      "expected": "{\"count\":\"316 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"316 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
@@ -249,7 +249,7 @@
     {
       "id": "parity-period-ytd",
       "description": "Parity: Period YTD",
-      "expected": "{\"count\":\"674 of 768 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"reval\",\"1917d\",\"73.8\",\"+$3,258,778.20\"],[\"2\",\"\",\"BallerinaC…",
+      "expected": "{\"count\":\"674 of 768 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"reval\",\"1917d\",\"73.8\",\"+$3,272,593.00\"],[\"2\",\"\",\"BallerinaC…",
       "actual": "identical",
       "pass": true
     },
@@ -263,14 +263,14 @@
     {
       "id": "parity-search",
       "description": "Parity: Search \"an\" (name, wallet and Kalshi username)",
-      "expected": "{\"count\":\"43 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"Iabvek\",\"690d\",\"66.3\",\"+$71,693.49 Elections +$47K\"],[\"2\",\"\"…",
+      "expected": "{\"count\":\"43 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"Iabvek\",\"690d\",\"66.3\",\"+$72,312.75 Elections +$47K\"],[\"2\",\"\"…",
       "actual": "identical",
       "pass": true
     },
     {
       "id": "parity-search-sanitize",
       "description": "Parity: Search input strips symbols (\"<a>\" becomes \"a\")",
-      "expected": "{\"value\":\"a\",\"count\":\"367 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$…",
+      "expected": "{\"value\":\"a\",\"count\":\"367 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$…",
       "actual": "identical",
       "pass": true
     },
@@ -291,7 +291,7 @@
     {
       "id": "parity-sort-pnl",
       "description": "Parity: Sort by P&L (first click)",
-      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L ↓\"],\"rows\":[[\"1\",\"\",\"GeorgeRe\",\"318d\",\"40\",\"$-40,443.15 -$6K\"],[\"2\",\"\",\"LlamaL…",
+      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L ↓\"],\"rows\":[[\"1\",\"\",\"GeorgeRe\",\"318d\",\"40\",\"$-45,016.97 -$6K\"],[\"2\",\"\",\"LlamaL…",
       "actual": "identical",
       "pass": true
     },
@@ -312,7 +312,7 @@
     {
       "id": "parity-show-more",
       "description": "Parity: Show More twice",
-      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$109,564.34 Elections +$106K\"],[\"2\",…",
+      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113,318.02 Elections +$106K\"],[\"2\",…",
       "actual": "identical",
       "pass": true
     },
@@ -340,7 +340,7 @@
     {
       "id": "parity-profile-calendar",
       "description": "Parity: Calendar strip, expand, monthly view YTD",
-      "expected": "[\"Nov 2026\",\"+$1,111,014\",\"10W / 1L\",\"Daily\",\"Monthly\",\"2026 YTD\",\"+$2.61M\",\"JAN\",\"+$286.30K\",\"FEB\",\"-$17.18K\",\"MAR\",\"+$233.66K\",\"APR\",\"-$138.03K\",\"MAY\",\"-$4…",
+      "expected": "[\"Nov 2026\",\"+$1,113,875\",\"10W / 1L\",\"Daily\",\"Monthly\",\"2026 YTD\",\"+$2.62M\",\"JAN\",\"+$286.30K\",\"FEB\",\"-$17.18K\",\"MAR\",\"+$233.66K\",\"APR\",\"-$138.03K\",\"MAY\",\"-$4…",
       "actual": "identical",
       "pass": true
     },
@@ -354,7 +354,7 @@
     {
       "id": "parity-profile-kalshi-categories",
       "description": "Parity: Kalshi profile: P&L by category rows",
-      "expected": "[\"P&L by Category\",\"Kalshi · all-time · markets traded\",\"Last 24h\",\"Politics +$74.5K\",\"Sports +$4.5K\",\"Entertainment +$4.3K\",\"Politics485\",\"+$811.5K\",\"Scienc…",
+      "expected": "[\"P&L by Category\",\"Kalshi · all-time · markets traded\",\"Last 24h\",\"Politics +$74.5K\",\"Sports +$4.5K\",\"Entertainment +$4.3K\",\"Politics492\",\"+$812.5K\",\"Scienc…",
       "actual": "identical",
       "pass": true
     },
@@ -382,7 +382,7 @@
     {
       "id": "parity-mobile-compact-pnl",
       "description": "Parity: Phone width: compact P&L (\"+$104k\") and hidden Joined column",
-      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$110k Elections +$106K\"],[\"2\",\"\",\"Bu…",
+      "expected": "{\"count\":\"414 of 574 traders\",\"headers\":[\"#\",\"\",\"Trader\",\"Joined\",\"Score\",\"P&L\"],\"rows\":[[\"1\",\"\",\"aenews\",\"1032d\",\"81\",\"+$113k Elections +$106K\"],[\"2\",\"\",\"Bu…",
       "actual": "identical",
       "pass": true
     }
@@ -398,7 +398,7 @@
     {
       "id": "proxy-top20-1d",
       "description": "Leaderboard (1d): top 20 names and P&L match upstream (1% tolerance for live ticks)",
-      "expected": "aenews $109,564, BuckeyesAreNuts $86,964, Iabvek $71,693 …",
+      "expected": "aenews $113,318, BuckeyesAreNuts $86,964, Iabvek $72,313 …",
       "actual": "all 20 match",
       "pass": true
     },
@@ -412,22 +412,29 @@
     {
       "id": "proxy-top20-all",
       "description": "Leaderboard (all): top 20 names and P&L match upstream (1% tolerance for live ticks)",
-      "expected": "RN1 $14,790,872, BallerinaCapuccina $7,270,821, dogname $6,552,484 …",
+      "expected": "RN1 $14,785,905, BallerinaCapuccina $7,270,821, dogname $6,552,484 …",
       "actual": "all 20 match",
       "pass": true
     },
     {
       "id": "proxy-cache-headers",
-      "description": "Leaderboard responses are edge-cacheable (keeps upstream calls under its 120/min limit)",
-      "expected": "cache-control contains s-maxage",
-      "actual": "public, max-age=0, s-maxage=30, stale-while-revalidate=120",
+      "description": "Leaderboard responses are edge-cached (keeps upstream calls under its 120/min limit)",
+      "expected": "s-maxage in cache-control, or x-vercel-cache HIT on repeat",
+      "actual": "x-vercel-cache: HIT",
+      "pass": true
+    },
+    {
+      "id": "proxy-405-post",
+      "description": "Non-GET requests are rejected (read-only proxy)",
+      "expected": "405",
+      "actual": "405",
       "pass": true
     },
     {
       "id": "truth-RN1",
       "description": "RN1: all-time P&L shown by replica vs Polymarket official trade_pnl (0.5% tolerance)",
-      "expected": "$14,790,872",
-      "actual": "$14,790,872",
+      "expected": "$14,785,905",
+      "actual": "$14,785,905",
       "pass": true
     },
     {
@@ -454,8 +461,8 @@
     {
       "id": "truth-tdrhrhhd",
       "description": "tdrhrhhd: all-time P&L shown by replica vs Polymarket official trade_pnl (0.5% tolerance)",
-      "expected": "$2,396,999",
-      "actual": "$2,396,999",
+      "expected": "$2,396,967",
+      "actual": "$2,396,967",
       "pass": true
     },
     {
@@ -495,8 +502,8 @@
     }
   ],
   "unit": {
-    "passed": 50,
+    "passed": 53,
     "failed": 0,
-    "total": 50
+    "total": 53
   }
 }
